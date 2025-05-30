@@ -7,7 +7,9 @@
 
 body {
     background-image: url(/public/bg-pokemon.png);
+    background-attachment: fixed;
     background-position: bottom;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -40,7 +42,6 @@ form {
         border-radius: 8px;
         background-color: #FFA705;
         color: #1a1a1a;
-        font-family: poppins;
         font-size: 16px;
         font-weight: 500;
         height: 48px;
@@ -111,4 +112,36 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#paging {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 80px 64px 80px;
+    margin-bottom: 120px;
+}
+
+#next,
+#previous {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    border: 2px solid #FFA705;
+    padding: 16px 16px;
+    border-radius: 24px;
+    font-size: 16px;
+    background-color: #FFA705;
+    color: #1a1a1a;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#next:hover,
+#previous:hover {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
+    cursor: pointer;
 }
