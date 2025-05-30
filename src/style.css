@@ -28,6 +28,7 @@ nav {
 form {
     display: flex;
     align-items: end;
+    justify-content: center;
     width: 100%;
     margin: 24px 0 64px 0;
     padding: 0 80px;
@@ -58,7 +59,7 @@ button:hover {
 .float-label {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 35%;
 
     label {
         margin-left: 8px;
@@ -74,7 +75,7 @@ button:hover {
         border-color: #1a1a1a;
         font-size: 16px;
         font-weight: 200;
-        color: white;
+        color: #1a1a1a;
         margin-right: 24px;
     }
 }
@@ -123,4 +124,25 @@ main {
     justify-content: space-between;
     padding: 0 80px 64px 80px;
     margin-bottom: 120px;
+}
+
+#modal{
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: auto;
+}
+
+.modal-content{
+    width: 80%;
+    margin: 20% auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

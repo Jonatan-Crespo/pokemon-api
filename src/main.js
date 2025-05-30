@@ -2,6 +2,8 @@ import './style.css'
 
 let offset = 0;
 const cardContainer = document.getElementById('card');
+const sectionModal = document.getElementById('modal');
+const pokemonNames = document.getElementById('pokemon-input');
 
 // Função para carregar Pokémons
 function fetchPokemons(url) {
@@ -54,12 +56,45 @@ function previousBtn() {
       offset -= 20;
       const URL_BASE = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`;
       fetchPokemons(URL_BASE);
-    }else{
+    } else {
       document.getElementById('previous').disabled = true;
     }
   })
 }
 
+// pesquisa por pokemon
+function searchPokemon() {
+  const searchBtn = document.getElementById('search-pokemon');
+  searchBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNames.value}`)
+      .then(response => response.json())
+      .then(dados => {
+        const div = document.createElement('div');
+        const pokemonTypes = dados.types.map((tipos) => tipos.type.name);
+
+        div.className = 'modal-content';
+        div.innerHTML = `
+          <span class="material-symbols-outlined">close</span>
+          <div class="pokemon-img">
+            <img src="${dados.sprites.other.dream_world.front_default}" alt="">
+          </div>
+          <div class="dados">
+            <h2>${dados.name}</h2>
+            <p>${pokemonTypes}</p>
+          </div>
+        `;
+        sectionModal.appendChild(div);
+        console.log(dados);
+        sectionModal.style.display = 'block';
+      })
+      .catch(error => console.error("Não achou esse Pokemon:", error));
+  })
+
+}
+
+
 fetchPokemons(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
 nextBtn();
 previousBtn();
+searchPokemon();
