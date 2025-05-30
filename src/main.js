@@ -63,6 +63,3 @@ function previousBtn() {
 fetchPokemons(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
 nextBtn();
 previousBtn();
-
-// // //Desbilitar o botão previous
-// // document.getElementById('previous').disabled = true;
