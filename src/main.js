@@ -1,15 +1,15 @@
 import './style.css'
 
-
-const URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
+// const URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
+const URL_BASE = 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0';
 
 fetch(URL_BASE)
   .then(response => response.json())
-  .then(data => {
+  .then(data => {   
     const namePokemons = Object.entries(data.results);
-
+   
     namePokemons.forEach((names) => {
-      fetch(`${URL_BASE}${names[1].name}`)
+      fetch(`https://pokeapi.co/api/v2/pokemon/${names[1].name}`)
         .then(response => response.json())
         .then(dados => {
           const card = document.getElementById('card');
