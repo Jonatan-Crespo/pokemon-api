@@ -72,20 +72,28 @@ function searchPokemon() {
       .then(dados => {
         const div = document.createElement('div');
         const pokemonTypes = dados.types.map((tipos) => tipos.type.name);
+        console.log(dados);
+        
 
         div.className = 'modal-content';
         div.innerHTML = `
-          <span class="material-symbols-outlined">close</span>
-          <div class="pokemon-img">
-            <img src="${dados.sprites.other.dream_world.front_default}" alt="">
-          </div>
+          <b class="material-symbols-outlined">close</b>
+          
+          <img src="${dados.sprites.other.dream_world.front_default}" alt="">
+          
           <div class="dados">
             <h2>${dados.name}</h2>
-            <p>${pokemonTypes}</p>
+            <p>Type: <span>${pokemonTypes}</span></p>
+            <ul>Status:</ul>
+              <li>HP = <span>${dados.stats[0].base_stat}</span></li>
+              <li>Attack = <span>${dados.stats[1].base_stat}</span></li>
+              <li>Defence = <span>${dados.stats[2].base_stat}</span></li>
+              <li>Special Attack = <span>${dados.stats[3].base_stat}</span></li>
+              <li>Special Defence = <span>${dados.stats[4].base_stat}</span></li>
+              <li>Speed = <span>${dados.stats[5].base_stat}</span></li>
           </div>
         `;
         sectionModal.appendChild(div);
-        console.log(dados);
         sectionModal.style.display = 'block';
       })
       .catch(error => console.error("Não achou esse Pokemon:", error));
