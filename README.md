@@ -17,7 +17,7 @@ Esse repositório tem como objetivo, pegar os dado pokeapi.co e apresentar na te
 <br><br>
 
 ## 🎨 Exemplo de como ficou o projeto
-![Página do Pokemon API](./public/visual-public-api.png)
+![Página do Pokemon API](./public/visual-pokemon-api.png)
 <br><br>
 
 ## 🏆 Contribuindo
