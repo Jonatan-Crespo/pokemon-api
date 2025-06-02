@@ -1,4 +1,4 @@
-# 🖼️ Pokemon API
+# 🦊 Pokemon API
 
 Esse repositório tem como objetivo, pegar os dado pokeapi.co e apresentar na tela os pokemons e pesquisar o seu pokemon favorito. O repositório oferece uma plataforma simples onde os usuários podem:<br><br>
 
