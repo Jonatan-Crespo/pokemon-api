@@ -72,13 +72,9 @@ function searchPokemon() {
       .then(dados => {
         const div = document.createElement('div');
         const pokemonTypes = dados.types.map((tipos) => tipos.type.name);
-        console.log(dados);
-        
 
         div.className = 'modal-content';
         div.innerHTML = `
-          <b class="material-symbols-outlined">close</b>
-          
           <img src="${dados.sprites.other.dream_world.front_default}" alt="">
           
           <div class="dados">
@@ -101,8 +97,25 @@ function searchPokemon() {
 
 }
 
+function closeModal() {
+  const closeBtn = document.getElementById('closeBtn');
+
+  closeBtn.addEventListener('click', () => {
+    sectionModal.style.display = 'none';
+    location.reload();
+  });
+
+  window.addEventListener('click', (event) =>{
+    if (event.target == sectionModal) {
+      sectionModal.style.display = 'none';
+      location.reload();
+    }
+  });
+
+}
 
 fetchPokemons(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
 nextBtn();
 previousBtn();
 searchPokemon();
+closeModal();
